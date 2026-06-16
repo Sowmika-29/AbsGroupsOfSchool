@@ -345,26 +345,30 @@ button { font-family: inherit; cursor: pointer; }
   border-left-color: var(--maroon);
   padding-left: 24px;
 }
-.btn-admission {
+.btn-premium-admission {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--maroon);
+  background: var(--gold-lt, #D4A62A);
   color: #000;
-  padding: 10px 20px;
-  border-radius: 6px;
+  padding: 12px 28px;
+  border-radius: 9999px;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 700;
   border: none;
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: all 0.25s;
-  white-space: nowrap;
-  margin-left: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(212, 166, 42, 0.3);
+  text-decoration: none;
 }
-.btn-admission:hover { background: var(--maroon-dk); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(162,54,51,0.3); }
+.btn-premium-admission:hover {
+  background: #e6b735;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(212, 166, 42, 0.45);
+}
 .hamburger {
   display: none;
   flex-direction: column;
@@ -387,7 +391,7 @@ button { font-family: inherit; cursor: pointer; }
    HERO SLIDER
    ============================================================ */
 .hero { position: relative; overflow: hidden; }
-.hero-slider { position: relative; height: 600px; }
+.hero-slider { position: relative; height: 100vh; min-height: 600px; }
 .hero-slide {
   position: absolute;
   inset: 0;
@@ -403,33 +407,73 @@ button { font-family: inherit; cursor: pointer; }
 .slide-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(10,24,50,0.82) 0%, rgba(10,24,50,0.55) 60%, rgba(10,24,50,0.2) 100%);
+  background: linear-gradient(rgba(19, 60, 131, 0.85), rgba(19, 60, 131, 0.85));
 }
 .slide-content {
   position: relative;
   z-index: 3;
-  max-width: 620px;
+  width: 100%;
   padding: 0 0 0 80px;
-  animation: fadeUp 0.7s ease;
+  animation: fadeUp 0.5s ease;
 }
-.slide-badge {
+.hero-badges {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.h-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--maroon);
-  color: #000;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 6px 16px;
-  border-radius: 4px;
-  margin-bottom: 20px;
+  padding: 6px 18px;
+  border-radius: 30px;
   font-family: 'Poppins', sans-serif;
-  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+.h-badge i { color: #f4c055; }
+.h-badge.outline {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+}
+.h-badge.solid {
+  background: rgba(244, 192, 85, 0.2);
+  border: 1px solid rgba(244, 192, 85, 0.3);
+  color: #f4c055;
+}
+.hero-badges {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.h-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+.h-badge i { color: #f4c055; }
+.h-badge.outline {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+}
+.h-badge.solid {
+  background: rgba(244, 192, 85, 0.2);
+  border: 1px solid rgba(244, 192, 85, 0.3);
+  color: #f4c055;
 }
 .slide-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(2rem, 4.5vw, 3.4rem);
-  font-weight: 900;
+  font-family: 'Georgia', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
   color: #fff;
   line-height: 1.15;
   margin-bottom: 18px;
@@ -446,19 +490,19 @@ button { font-family: inherit; cursor: pointer; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--maroon);
+  background: #F5B83F;
   color: #000;
   padding: 14px 28px;
-  border-radius: 6px;
+  border-radius: 9999px;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  border: 2px solid var(--maroon);
+  border: 2px solid #F5B83F;
   cursor: pointer;
   transition: all 0.25s;
   text-decoration: none;
 }
-.btn-primary-hero:hover { background: var(--maroon-dk); border-color: var(--maroon-dk); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(162,54,51,0.4); }
+.btn-primary-hero:hover { background: #dfa535; border-color: #dfa535; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(245, 184, 63, 0.4); }
 .btn-secondary-hero {
   display: inline-flex;
   align-items: center;
@@ -466,7 +510,7 @@ button { font-family: inherit; cursor: pointer; }
   background: transparent;
   color: #fff;
   padding: 14px 28px;
-  border-radius: 6px;
+  border-radius: 9999px;
   font-family: 'Poppins', sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
@@ -523,68 +567,93 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 5px;
 }
 
-/* Stats Bar */
-.hero-stats-bar {
-  background: var(--navy);
-  padding: 0;
-  border-top: 4px solid var(--maroon);
-}
-.hero-stats-inner {
+/* Stats Cards Overlay */
+.hero-stats-cards {
+  position: relative;
+  margin-top: 60px;
+  z-index: 10;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
 }
-.hstat {
+.hstat-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 24px 32px;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 12px;
-  padding: 16px 24px;
-  transition: background 0.2s;
-}
-.hstat:hover { background: rgba(255,255,255,0.05); }
-.hstat > i {
-  font-size: 1.8rem;
-  color: var(--gold-lt);
-  flex-shrink: 0;
-}
-.hstat > div { display: flex; flex-direction: column; }
-.hstat strong {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
-  font-weight: 900;
   color: #fff;
-  line-height: 1;
-  display: inline;
+  min-width: 170px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeUp 0.5s ease forwards;
 }
-.hstat sup { font-size: 1.1rem; color: var(--gold-lt); font-weight: 700; vertical-align: super; }
-.hstat span { font-size: 0.75rem; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
-.hstat-div { width: 1px; height: 50px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
+.hstat-card:nth-child(1) { animation-delay: 0.1s; }
+.hstat-card:nth-child(2) { animation-delay: 0.2s; }
+.hstat-card:nth-child(3) { animation-delay: 0.3s; }
+.hstat-card:nth-child(4) { animation-delay: 0.4s; }
+.hstat-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.hstat-card i {
+  font-size: 2rem;
+  color: #f4c055;
+}
+.hstat-card strong {
+  font-family: 'Georgia', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.hstat-card sup {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 700;
+  vertical-align: super;
+}
+.hstat-card span {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.8);
+  margin-top: 4px;
+}
+
+/* Hero Wave */
+.hero-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 5;
+}
+.hero-wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 90px;
+}
 
 /* ============================================================
    TICKER
    ============================================================ */
 .ticker-bar {
-  background: var(--maroon);
+  background: #F5B83F;
   color: #000;
-  padding: 10px 0;
+  padding: 14px 0;
   overflow: hidden;
   display: flex;
   align-items: center;
-}
-.ticker-label {
-  background: var(--maroon-dk);
-  padding: 8px 18px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 1px;
-  flex-shrink: 0;
-  margin-right: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
+  font-weight: 600;
 }
 .ticker-wrap { flex: 1; overflow: hidden; }
 .ticker-track {
@@ -1063,10 +1132,12 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: flex-end;
   padding: 16px;
-  opacity: 0;
-  transition: opacity 0.3s;
+  opacity: 1;
+  transition: background 0.3s;
 }
-.gal-item:hover .gal-overlay { opacity: 1; }
+.gal-item:hover .gal-overlay {
+  background: linear-gradient(to top, rgba(26,60,110,0.95) 0%, transparent 65%);
+}
 .gal-overlay span {
   font-family: 'Poppins', sans-serif;
   font-size: 0.9rem;
@@ -1567,8 +1638,21 @@ button { font-family: inherit; cursor: pointer; }
   .about-img-secondary { display: none; }
   .about-img-overlay { left: 0; }
   .about-img-badge { right: 0; }
-  .hero-slider { height: 480px; }
-  .slide-content { padding: 0 24px; max-width: 100%; }
+  .hero-slider { height: auto; min-height: 100vh; padding-bottom: 80px; }
+  .slide-content { padding: 40px 24px; }
+  .hero-stats-cards {
+    width: 100%;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    overflow-x: visible;
+  }
+  .hstat-card {
+    min-width: 0;
+    padding: 16px 20px;
+  }
+  .hstat-card strong { font-size: 1.8rem; }
   .hstat { padding: 18px 20px; }
   .hstat > i { font-size: 1.4rem; }
   .testi-card { min-width: 85%; }
@@ -1588,9 +1672,13 @@ button { font-family: inherit; cursor: pointer; }
   .footer-grid   { grid-template-columns: 1fr; }
   .brand-col     { grid-column: 1; }
   .hero-stats-inner { gap: 0; flex-wrap: wrap; }
+  .hero-stats-cards { 
+    grid-template-columns: 1fr; 
+    margin-top: 32px;
+  }
   .hstat { width: 50%; padding: 14px 12px; }
   .hstat-div { display: none; }
-  .hero-slider { height: 420px; }
+  .hero-slider { height: auto; min-height: 100vh; padding-bottom: 60px; }
   .slide-title { font-size: 1.6rem; }
   .slide-desc { font-size: 0.88rem; }
   .slide-actions { flex-direction: column; gap: 10px; }
@@ -1606,15 +1694,20 @@ button { font-family: inherit; cursor: pointer; }
 /* ============================================================
    NEW: CAMPUS SELECTOR DROPDOWN & SELECTOR PANEL STYLES
    ============================================================ */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .nav-switcher-container {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: var(--light-blue);
   border: 1px solid var(--border);
-  padding: 8px 14px;
+  padding: 6px 10px;
   border-radius: 8px;
-  margin-left: 14px;
   transition: all 0.25s ease;
   position: relative;
   box-shadow: var(--shadow-sm);
@@ -1625,18 +1718,22 @@ button { font-family: inherit; cursor: pointer; }
 }
 .switcher-icon {
   color: var(--maroon);
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .campus-select-dropdown {
   background: transparent;
   border: none;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--navy);
   cursor: pointer;
   outline: none;
-  padding-right: 20px;
+  padding-right: 18px;
+  max-width: 170px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231a3c6e%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right center;

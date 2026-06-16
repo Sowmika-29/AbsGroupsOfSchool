@@ -89,19 +89,6 @@
         </div>
       </a>
 
-      <!-- Campus Switcher widget directly in nav -->
-      <div class="nav-switcher-container">
-        <i class="fas fa-school switcher-icon"></i>
-        <select class="campus-select-dropdown" onchange="switchCampus(this.value, true)" aria-label="Select Campus">
-          <option value="group">ABS Group Hub (All Schools)</option>
-          <option value="korattur">ABS Global Smart School — Korattur (CBSE)</option>
-          <option value="avadi">ABS Global Smart School — Avadi (CBSE)</option>
-          <option value="jnroad">ABS Global Smart School — J.N. Road (CBSE)</option>
-          <option value="mandhir">ABS Vidhya Mandhir — Thiruvallur (CBSE)</option>
-          <option value="vidhyaalayaa">ABS Vidhyaalayaa — Thiruvallur (Matric)</option>
-        </select>
-      </div>
-
       <nav class="nav-menu" id="navMenu">
         <a href="#home" class="nav-item active" id="nHome">Home</a>
 
@@ -152,18 +139,26 @@
 
         <a href="#blog" class="nav-item" id="nBlog">Blog</a>
 
-        <div class="nav-dropdown">
-          <a href="#admission" class="nav-item" id="nAdmission">Admission <i class="fas fa-chevron-down"></i></a>
-          <div class="dropdown-panel">
-            <a href="#admission">Admission Process</a>
-            <a href="#admission">Admission Enquiry Form</a>
-          </div>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Campus Switcher widget directly in nav -->
+        <div class="nav-switcher-container">
+          <i class="fas fa-school switcher-icon"></i>
+          <select class="campus-select-dropdown" onchange="switchCampus(this.value, true)" aria-label="Select Campus">
+            <option value="group">ABS Group Hub (All Schools)</option>
+            <option value="korattur">ABS Global Smart School — Korattur (CBSE)</option>
+            <option value="avadi">ABS Global Smart School — Avadi (CBSE)</option>
+            <option value="jnroad">ABS Global Smart School — J.N. Road (CBSE)</option>
+            <option value="mandhir">ABS Vidhya Mandhir — Thiruvallur (CBSE)</option>
+            <option value="vidhyaalayaa">ABS Vidhyaalayaa — Thiruvallur (Matric)</option>
+          </select>
         </div>
 
-        <button class="btn-admission" id="navEnquiryBtn" onclick="openEnquiry(event)">
-          <i class="fas fa-user-graduate"></i> Enquire Now
-        </button>
-      </nav>
+        <a href="#admission" class="btn-premium-admission" id="navAdmissionBtn" onclick="openEnquiry(event)">
+          <i class="fas fa-user-graduate"></i> Admission
+        </a>
+      </div>
 
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -178,19 +173,50 @@
       <div class="hero-slide active" style="background-image: url('assets/school_hero_professional.jpeg');">
         <div class="slide-overlay"></div>
         <div class="slide-content">
-          <div class="slide-badge"><i class="fas fa-award"></i> ABS Group of Schools</div>
-          <h1 class="slide-title">Welcome to ABS<br /><span>Group of Schools</span></h1>
-          <p class="slide-desc">Providing high-end academic guidance, technology integration and character development since 2009.</p>
-          <div class="slide-actions">
-            <button class="btn-primary-hero" onclick="openEnquiry(event)">
-              <i class="fas fa-user-graduate"></i> Apply for Admission
-            </button>
-            <a href="#about" class="btn-secondary-hero">
-              <i class="fas fa-play-circle"></i> Discover More
-            </a>
+          <div class="slide-text-wrapper" style="max-width: 620px;">
+            <div class="hero-badges">
+              <div class="h-badge outline"><i class="fas fa-map-marker-alt"></i> Korattur, Chennai</div>
+              <div class="h-badge solid"><i class="fas fa-circle"></i> Admissions Open 2025–26</div>
+            </div>
+            <h1 class="slide-title">Shaping<br /><span>Future Leaders</span><br />Since 2009</h1>
+            <p class="slide-desc">ABS Vidhyaalayaa — Where every child discovers their potential through world-class CBSE education, holistic development, and values-driven learning.</p>
+            <div class="slide-actions">
+              <button class="btn-primary-hero" onclick="openEnquiry(event)">
+                Start Your Journey <i class="fas fa-arrow-right"></i>
+              </button>
+              <a href="#about" class="btn-secondary-hero">
+                Explore Campus
+              </a>
+            </div>
+          </div>
+          
+          <!-- Stats Cards Flowing Directly Below Buttons -->
+          <div class="hero-stats-cards">
+            <div class="hstat-card">
+              <i class="fas fa-award"></i>
+              <div><strong data-target="15" class="counter count-years">0</strong><sup>+</sup></div>
+              <span>Years of Excellence</span>
+            </div>
+            <div class="hstat-card">
+              <i class="fas fa-users"></i>
+              <div><strong data-target="6500" class="counter count-students">0</strong><sup>+</sup></div>
+              <span>Happy Students</span>
+            </div>
+            <div class="hstat-card">
+              <i class="fas fa-certificate"></i>
+              <div><strong data-target="100" class="counter count-pass">0</strong><sup>%</sup></div>
+              <span>CBSE Results</span>
+            </div>
+            <div class="hstat-card">
+              <i class="fas fa-school"></i>
+              <div><strong class="text-white" style="font-family:'Georgia',serif;">CBSE</strong></div>
+              <span>Affiliated</span>
+            </div>
           </div>
         </div>
       </div>
+
+
 
       <!-- Slider Controls -->
       <button class="slider-prev" id="sliderPrev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
@@ -199,45 +225,14 @@
         <span class="sdot active" data-slide="0"></span>
       </div>
     </div>
-
-    <!-- Stats Bar -->
-    <div class="hero-stats-bar">
-      <div class="container-fluid hero-stats-inner">
-        <div class="hstat">
-          <i class="fas fa-history"></i>
-          <div><strong data-target="15" class="counter count-years">0</strong><sup>+</sup><span>Years of Excellence</span></div>
-        </div>
-        <div class="hstat-div"></div>
-        <div class="hstat">
-          <i class="fas fa-check-circle"></i>
-          <div><strong data-target="100" class="counter count-pass">0</strong><sup>%</sup><span>Board Pass Rate</span></div>
-        </div>
-        <div class="hstat-div"></div>
-        <div class="hstat">
-          <i class="fas fa-user-graduate"></i>
-          <div><strong data-target="6500" class="counter count-students">0</strong><sup>+</sup><span>Students Enrolled</span></div>
-        </div>
-        <div class="hstat-div"></div>
-        <div class="hstat">
-          <i class="fas fa-chalkboard-teacher"></i>
-          <div><strong data-target="350" class="counter count-faculty">0</strong><sup>+</sup><span>Expert Faculty</span></div>
-        </div>
-        <div class="hstat-div"></div>
-        <div class="hstat">
-          <i class="fas fa-book-open"></i>
-          <div><strong data-target="45000" class="counter count-books">0</strong><sup>+</sup><span>Library Books</span></div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- ===== ANNOUNCEMENT TICKER ===== -->
   <div class="ticker-bar">
-    <div class="ticker-label"><i class="fas fa-bullhorn"></i> NOTICE</div>
     <div class="ticker-wrap">
       <div class="ticker-track" id="tickerTrack">
-        <span><i class="fas fa-graduation-cap"></i> Admissions Open for 2026-27 Academic Year &nbsp;|&nbsp; <i class="fas fa-check-circle"></i> 100% Pass Rate &nbsp;|&nbsp; <i class="fas fa-star"></i> Holistic Education &nbsp;|&nbsp; <i class="fas fa-trophy"></i> Olympiad Champions &nbsp;|&nbsp; <i class="fas fa-lightbulb"></i> Value Based Learning &nbsp;|&nbsp; <i class="fas fa-school"></i> CBSE Affiliated &nbsp;|&nbsp; <i class="fas fa-medal"></i> 15+ Years of Excellence</span>
-        <span><i class="fas fa-graduation-cap"></i> Admissions Open for 2026-27 Academic Year &nbsp;|&nbsp; <i class="fas fa-check-circle"></i> 100% Pass Rate &nbsp;|&nbsp; <i class="fas fa-star"></i> Holistic Education &nbsp;|&nbsp; <i class="fas fa-trophy"></i> Olympiad Champions &nbsp;|&nbsp; <i class="fas fa-lightbulb"></i> Value Based Learning &nbsp;|&nbsp; <i class="fas fa-school"></i> CBSE Affiliated &nbsp;|&nbsp; <i class="fas fa-medal"></i> 15+ Years of Excellence</span>
+        <span><i class="far fa-star"></i> 15+ Years of Excellence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-ribbon"></i> 100% Pass Rate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-book-open"></i> Holistic Education &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-trophy"></i> Olympiad Champions &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="far fa-heart"></i> Value Based Learning &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-graduation-cap"></i> CBSE Affiliated</span>
+        <span><i class="far fa-star"></i> 15+ Years of Excellence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-ribbon"></i> 100% Pass Rate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-book-open"></i> Holistic Education &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-trophy"></i> Olympiad Champions &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="far fa-heart"></i> Value Based Learning &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-graduation-cap"></i> CBSE Affiliated</span>
       </div>
     </div>
   </div>
@@ -323,33 +318,7 @@
           <p class="body-text" id="aboutCampusText1">ABS Group of Schools is a leading educational trust established in 2009. We manage five state-of-the-art campuses designed to offer premium education to students of all backgrounds.</p>
           <p class="body-text" id="aboutCampusText2">Our schools combine academic rigor with creative development, offering integrated IIT-JEE/NEET coaching, coding & robotics clubs, and rich co-curricular programs including sports, arts, karate, and yoga.</p>
 
-          <button class="btn-view-more" id="viewMorePillarsBtn" onclick="togglePillars()">
-            View More <i class="fas fa-arrow-right"></i>
-          </button>
 
-          <div class="about-pillars" id="aboutPillars" style="display: none;">
-            <div class="pillar">
-              <div class="pillar-icon navy"><i class="fas fa-bullseye"></i></div>
-              <div>
-                <h4>Our Mission</h4>
-                <p>To provide technology-driven, ethical education that empowers students with skills to become responsible global citizens.</p>
-              </div>
-            </div>
-            <div class="pillar">
-              <div class="pillar-icon maroon"><i class="fas fa-eye"></i></div>
-              <div>
-                <h4>Our Vision</h4>
-                <p>To be the leading educational institution creating confident, compassionate and highly competent future leaders.</p>
-              </div>
-            </div>
-            <div class="pillar">
-              <div class="pillar-icon gold"><i class="fas fa-star"></i></div>
-              <div>
-                <h4>Our Motto</h4>
-                <p>"Excellence in Education, Virtue in Life" — guiding every student to realize their maximum potential.</p>
-              </div>
-            </div>
-          </div>
           <div class="about-actions">
             <button class="btn-primary" onclick="openEnquiry(event)">
               <i class="fas fa-user-graduate"></i> Apply for Admission
@@ -767,6 +736,10 @@
           <img src="assets/school_hero.jpeg" alt="Interactive Student Work" loading="lazy" />
           <div class="gal-overlay"><span>Creative student labs work</span></div>
         </div>
+        <div class="gal-item wide" id="gal6">
+          <img src="https://absglobal.org/assets/images/event/kirs-day1.jpg" alt="Co-curricular training" loading="lazy" />
+          <div class="gal-overlay"><span>Co-curricular & Extracurricular</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -787,21 +760,21 @@
             </div>
           </div>
           <div class="cinfo-card" id="cPhone">
-            <div class="cinfo-icon maroon-ic"><i class="fas fa-phone-alt"></i></div>
+            <div class="cinfo-icon navy-ic"><i class="fas fa-phone-alt"></i></div>
             <div>
               <h4>Phone Contacts</h4>
               <p><a href="tel:04428416801">044-28416801</a></p>
             </div>
           </div>
           <div class="cinfo-card" id="cEmail">
-            <div class="cinfo-icon gold-ic"><i class="fas fa-envelope"></i></div>
+            <div class="cinfo-icon navy-ic"><i class="fas fa-envelope"></i></div>
             <div>
               <h4>Email Addresses</h4>
               <p><a href="mailto:info@absgroupschools.com">info@absgroupschools.com</a></p>
             </div>
           </div>
           <div class="cinfo-card" id="cHours">
-            <div class="cinfo-icon green-ic"><i class="fas fa-clock"></i></div>
+            <div class="cinfo-icon navy-ic"><i class="fas fa-clock"></i></div>
             <div>
               <h4>Working Hours</h4>
               <p>Monday – Saturday<br />8:00 AM – 4:00 PM</p>
