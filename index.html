@@ -168,33 +168,58 @@
 
   <!-- ===== HERO ===== -->
   <section id="home" class="hero">
-    <!-- CSS Background Slider -->
-    <div class="hero-bg-slider">
-      <div class="bg-slide" style="background-image: url('assets/school_hero_professional.jpeg');"></div>
-      <div class="bg-slide" style="background-image: url('assets/smart_classroom.png'); animation-delay: 3s;"></div>
-      <div class="bg-slide" style="background-image: url('assets/students_sports.jpeg'); animation-delay: 6s;"></div>
-    </div>
-
-    <!-- Dark gradient overlay -->
-    <div class="slide-overlay"></div>
-
-    <!-- Static Hero Content -->
-    <div class="slide-content-static">
-      <div class="slide-text-wrapper" style="max-width: 620px;">
-        <div class="hero-badges">
-          <div class="h-badge outline"><i class="fas fa-map-marker-alt"></i> Korattur, Chennai</div>
-          <div class="h-badge solid"><i class="fas fa-circle"></i> Admissions Open 2025–26</div>
+    <div class="hero-slider">
+      <!-- Slides are dynamically injected by script.js. Fallback structure included below. -->
+      <div class="hero-slide active" style="background-image: url('assets/school_hero_professional.jpeg');">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-text-wrapper" style="max-width: 620px;">
+            <div class="slide-badge"><i class="fas fa-award"></i> ABS Group of Schools</div>
+            <h1 class="slide-title">Nurturing Excellence<br /><span>Virtue & Talent</span></h1>
+            <p class="slide-desc">Welcome to ABS Group of Schools. Five premier campuses in Greater Chennai & Thiruvallur shaping the leaders of tomorrow.</p>
+            <div class="slide-actions">
+              <button class="btn-primary-hero" onclick="openEnquiry(event)">
+                <i class="fas fa-user-graduate"></i> Apply for Admission
+              </button>
+              <a href="#about" class="btn-secondary-hero">
+                <i class="fas fa-play-circle"></i> Discover More
+              </a>
+            </div>
+          </div>
+          
+          <!-- Stats Cards Flowing Directly Below Buttons -->
+          <div class="hero-stats-cards">
+            <div class="hstat-card">
+              <i class="fas fa-award"></i>
+              <div><strong data-target="15" class="counter count-years">0</strong><sup>+</sup></div>
+              <span>Years of Excellence</span>
+            </div>
+            <div class="hstat-card">
+              <i class="fas fa-users"></i>
+              <div><strong data-target="6500" class="counter count-students">0</strong><sup>+</sup></div>
+              <span>Happy Students</span>
+            </div>
+            <div class="hstat-card">
+              <i class="fas fa-certificate"></i>
+              <div><strong data-target="100" class="counter count-pass">0</strong><sup>%</sup></div>
+              <span>CBSE Results</span>
+            </div>
+            <div class="hstat-card">
+              <i class="fas fa-school"></i>
+              <div><strong class="text-white" style="font-family:'Georgia',serif;">CBSE</strong></div>
+              <span>Affiliated</span>
+            </div>
+          </div>
         </div>
-        <h1 class="slide-title">Shaping<br /><span>Future Leaders</span><br />Since 2009</h1>
-        <p class="slide-desc">ABS Vidhyaalayaa — Where every child discovers their potential through world-class CBSE education, holistic development, and values-driven learning.</p>
-        <div class="slide-actions">
-          <button class="btn-primary-hero" onclick="openEnquiry(event)">
-            Start Your Journey <i class="fas fa-arrow-right"></i>
-          </button>
-          <a href="#about" class="btn-secondary-hero">
-            Explore Campus
-          </a>
-        </div>
+      </div>
+
+
+
+      <!-- Slider Controls -->
+      <button class="slider-prev" id="sliderPrev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+      <button class="slider-next" id="sliderNext" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+      <div class="slider-dots" id="sliderDots">
+        <span class="sdot active" data-slide="0"></span>
       </div>
     </div>
     
@@ -208,65 +233,29 @@
     </div>
   </section>
 
-  <!-- ===== WHITE SPACE DIVIDER ===== -->
-  <div class="white-space-divider" style="background-color: #ffffff; height: 30px; width: 100%; margin-top: -1px; position: relative; z-index: 10;"></div>
-
   <!-- ===== NEW STATISTICS SECTION ===== -->
-  <section class="section bg-navy custom-stats-section" style="padding: 60px 0;">
+  <section class="stats-section-new">
     <div class="container">
-      <div class="custom-stats-row">
-        <!-- 1. Years -->
-        <div class="custom-stat-card">
-          <div class="custom-stat-icon"><i class="fas fa-history"></i></div>
-          <div class="custom-stat-text">
-            <div class="custom-stat-num"><span data-target="15" class="counter count-years">15</span></div>
-            <div class="custom-stat-sym">+</div>
-            <div class="custom-stat-label">YEARS OF EXCELLENCE</div>
-          </div>
+      <div class="hero-stats-cards">
+        <div class="hstat-card">
+          <i class="fas fa-graduation-cap"></i>
+          <div><strong data-target="15" class="counter count-years">0</strong><sup>+</sup></div>
+          <span>Years of Excellence</span>
         </div>
-        <div class="custom-stat-divider"></div>
-        
-        <!-- 2. Pass Rate -->
-        <div class="custom-stat-card">
-          <div class="custom-stat-icon"><i class="fas fa-check-circle"></i></div>
-          <div class="custom-stat-text">
-            <div class="custom-stat-num"><span data-target="100" class="counter count-pass">100</span></div>
-            <div class="custom-stat-sym">%</div>
-            <div class="custom-stat-label">BOARD PASS RATE</div>
-          </div>
+        <div class="hstat-card">
+          <i class="fas fa-user-friends"></i>
+          <div><strong data-target="3000" class="counter count-students">0</strong><sup>+</sup></div>
+          <span>Happy Students</span>
         </div>
-        <div class="custom-stat-divider"></div>
-        
-        <!-- 3. Students -->
-        <div class="custom-stat-card">
-          <div class="custom-stat-icon"><i class="fas fa-user-graduate"></i></div>
-          <div class="custom-stat-text">
-            <div class="custom-stat-num"><span data-target="6500" class="counter count-students">6,500</span></div>
-            <div class="custom-stat-sym">+</div>
-            <div class="custom-stat-label">STUDENTS ENROLLED</div>
-          </div>
+        <div class="hstat-card">
+          <i class="fas fa-ribbon"></i>
+          <div><strong data-target="100" class="counter count-pass">0</strong><sup>%</sup></div>
+          <span>CBSE Results</span>
         </div>
-        <div class="custom-stat-divider"></div>
-        
-        <!-- 4. Faculty -->
-        <div class="custom-stat-card">
-          <div class="custom-stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-          <div class="custom-stat-text">
-            <div class="custom-stat-num"><span data-target="350" class="counter count-faculty">350</span></div>
-            <div class="custom-stat-sym">+</div>
-            <div class="custom-stat-label">EXPERT FACULTY</div>
-          </div>
-        </div>
-        <div class="custom-stat-divider"></div>
-        
-        <!-- 5. Library Books -->
-        <div class="custom-stat-card">
-          <div class="custom-stat-icon"><i class="fas fa-book-open"></i></div>
-          <div class="custom-stat-text">
-            <div class="custom-stat-num"><span data-target="45000" class="counter count-books">45,000</span></div>
-            <div class="custom-stat-sym">+</div>
-            <div class="custom-stat-label">LIBRARY BOOKS</div>
-          </div>
+        <div class="hstat-card">
+          <i class="fas fa-book-open"></i>
+          <div><strong class="text-white" style="font-family:'Georgia',serif;">CBSE</strong></div>
+          <span>Affiliated</span>
         </div>
       </div>
     </div>
