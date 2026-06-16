@@ -1,0 +1,12 @@
+{
+  "name": "abs-group-of-schools",
+  "version": "1.0.0",
+  "description": "ABS Group of Schools Portal",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y http-server -p 3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

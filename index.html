@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABS Group of Schools — CBSE & Matric Campuses Chennai & Thiruvallur</title>
+  <meta name="description" content="ABS Group of Schools operates 5 premier CBSE & Matriculation campuses across Greater Chennai & Thiruvallur. Offering smart classrooms, NEET/JEE coaching, and holistic development." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="https://absglobal.org/assets/images/KORATTUR-Logo-mini.png" type="image/x-icon" />
+</head>
+<body>
+
+  <!-- ===== ENQUIRY POPUP ===== -->
+  <div id="enquiryPopup" class="popup-overlay" role="dialog" aria-modal="true">
+    <div class="popup-box">
+      <button id="closePopup" class="popup-close" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="popup-logo">
+        <div class="popup-logo-icon emblem-text">ABS</div>
+        <div>
+          <strong class="logo-name">ABS Group of Schools</strong>
+          <span class="logo-tagline">CBSE & Matric Curricula</span>
+        </div>
+      </div>
+      <h2 class="popup-title">Admissions Open 2026-27</h2>
+      <p class="popup-sub">Fill in your details and our team will reach you shortly.</p>
+      <form id="enquiryForm" novalidate>
+        <div class="form-row2">
+          <div class="fg">
+            <label for="pName">Parent Name *</label>
+            <input type="text" id="pName" placeholder="Your full name" required />
+          </div>
+          <div class="fg">
+            <label for="cName">Child's Name *</label>
+            <input type="text" id="cName" placeholder="Child's name" required />
+          </div>
+        </div>
+        <div class="form-row2">
+          <div class="fg">
+            <label for="pPhone">Phone *</label>
+            <input type="tel" id="pPhone" placeholder="+91 XXXXX XXXXX" required />
+          </div>
+          <div class="fg">
+            <label for="pCampus">Campus Selection *</label>
+            <select id="pCampus" required>
+              <option value="group">ABS Group Hub (All Schools)</option>
+              <option value="korattur">ABS Global Smart School (Korattur)</option>
+              <option value="avadi">ABS Global Smart School (Avadi)</option>
+              <option value="jnroad">ABS Global Smart School (J.N. Road)</option>
+              <option value="mandhir">ABS Vidhya Mandhir (Thiruvallur)</option>
+              <option value="vidhyaalayaa">ABS Vidhyaalayaa Matric (Thiruvallur)</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label for="pGrade">Seeking Grade</label>
+          <select id="pGrade">
+            <option value="">Select Grade</option>
+            <option>Nursery / LKG / UKG</option>
+            <option>Class I – V</option>
+            <option>Class VI – VIII</option>
+            <option>Class IX – X</option>
+            <option>Class XI – XII</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit" id="enquirySubmit">
+          <i class="fas fa-paper-plane"></i> Submit Enquiry
+        </button>
+      </form>
+      <p class="popup-note"><i class="fas fa-shield-alt"></i> Your information is 100% secure and private.</p>
+    </div>
+  </div>
+
+
+
+  <!-- ===== NAVBAR ===== -->
+  <header id="navbar">
+    <div class="container-fluid nav-inner">
+      <a href="#home" class="nav-logo" id="logoLink" onclick="switchCampus('group', true)">
+        <div class="logo-emblem">ABS</div>
+        <div class="logo-text">
+          <span class="logo-name">ABS Group of Schools</span>
+          <span class="logo-tagline">Nurturing Excellence Since 2009</span>
+        </div>
+      </a>
+
+      <!-- Campus Switcher widget directly in nav -->
+      <div class="nav-switcher-container">
+        <i class="fas fa-school switcher-icon"></i>
+        <select class="campus-select-dropdown" onchange="switchCampus(this.value, true)" aria-label="Select Campus">
+          <option value="group">ABS Group Hub (All Schools)</option>
+          <option value="korattur">ABS Global Smart School — Korattur (CBSE)</option>
+          <option value="avadi">ABS Global Smart School — Avadi (CBSE)</option>
+          <option value="jnroad">ABS Global Smart School — J.N. Road (CBSE)</option>
+          <option value="mandhir">ABS Vidhya Mandhir — Thiruvallur (CBSE)</option>
+          <option value="vidhyaalayaa">ABS Vidhyaalayaa — Thiruvallur (Matric)</option>
+        </select>
+      </div>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-item active" id="nHome">Home</a>
+
+        <div class="nav-dropdown">
+          <a href="#about" class="nav-item" id="nAbout">About Us <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-panel">
+            <a href="#about">Academic Director</a>
+            <a href="#about">Founder's Message</a>
+            <a href="#about">Management Team</a>
+            <a href="#about">Principal Desk</a>
+            <a href="#about">Mission, Vision &amp; Motto</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <a href="#campus" class="nav-item" id="nCampus">Campus <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-panel">
+            <a href="#facilities">Infrastructure</a>
+            <a href="#programs">Our Programs</a>
+            <a href="#campus">Environment Care</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <a href="#academics" class="nav-item" id="nAcademics">Academics <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-panel">
+            <a href="#academics">Discipline at ABS</a>
+            <a href="#academics">General Instructions</a>
+            <a href="#academics">Integrated NEET, IIT-JEE &amp; Robotics</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <a href="#events" class="nav-item" id="nEvents">Events <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-panel">
+            <a href="#events">2024 – 2025</a>
+            <a href="#events">2023 – 2024</a>
+            <a href="#events">2022 – 2023</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <a href="#achievements" class="nav-item" id="nAchieve">Achievements <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-panel">
+            <a href="#achievements">Toppers 2024 – 2025</a>
+          </div>
+        </div>
+
+        <a href="#blog" class="nav-item" id="nBlog">Blog</a>
+
+        <div class="nav-dropdown">
+          <a href="#admission" class="nav-item" id="nAdmission">Admission <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-panel">
+            <a href="#admission">Admission Process</a>
+            <a href="#admission">Admission Enquiry Form</a>
+          </div>
+        </div>
+
+        <button class="btn-admission" id="navEnquiryBtn" onclick="openEnquiry(event)">
+          <i class="fas fa-user-graduate"></i> Enquire Now
+        </button>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+    <div class="hero-slider">
+      <!-- Slides are dynamically injected by script.js. Fallback structure included below. -->
+      <div class="hero-slide active" style="background-image: url('assets/school_hero_professional.jpeg');">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-badge"><i class="fas fa-award"></i> ABS Group of Schools</div>
+          <h1 class="slide-title">Welcome to ABS<br /><span>Group of Schools</span></h1>
+          <p class="slide-desc">Providing high-end academic guidance, technology integration and character development since 2009.</p>
+          <div class="slide-actions">
+            <button class="btn-primary-hero" onclick="openEnquiry(event)">
+              <i class="fas fa-user-graduate"></i> Apply for Admission
+            </button>
+            <a href="#about" class="btn-secondary-hero">
+              <i class="fas fa-play-circle"></i> Discover More
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Controls -->
+      <button class="slider-prev" id="sliderPrev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+      <button class="slider-next" id="sliderNext" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+      <div class="slider-dots" id="sliderDots">
+        <span class="sdot active" data-slide="0"></span>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="hero-stats-bar">
+      <div class="container-fluid hero-stats-inner">
+        <div class="hstat">
+          <i class="fas fa-history"></i>
+          <div><strong data-target="15" class="counter count-years">0</strong><sup>+</sup><span>Years of Excellence</span></div>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <i class="fas fa-check-circle"></i>
+          <div><strong data-target="100" class="counter count-pass">0</strong><sup>%</sup><span>Board Pass Rate</span></div>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <i class="fas fa-user-graduate"></i>
+          <div><strong data-target="6500" class="counter count-students">0</strong><sup>+</sup><span>Students Enrolled</span></div>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <div><strong data-target="350" class="counter count-faculty">0</strong><sup>+</sup><span>Expert Faculty</span></div>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <i class="fas fa-book-open"></i>
+          <div><strong data-target="45000" class="counter count-books">0</strong><sup>+</sup><span>Library Books</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ANNOUNCEMENT TICKER ===== -->
+  <div class="ticker-bar">
+    <div class="ticker-label"><i class="fas fa-bullhorn"></i> NOTICE</div>
+    <div class="ticker-wrap">
+      <div class="ticker-track" id="tickerTrack">
+        <span><i class="fas fa-graduation-cap"></i> Admissions Open for 2026-27 Academic Year &nbsp;|&nbsp; <i class="fas fa-check-circle"></i> 100% Pass Rate &nbsp;|&nbsp; <i class="fas fa-star"></i> Holistic Education &nbsp;|&nbsp; <i class="fas fa-trophy"></i> Olympiad Champions &nbsp;|&nbsp; <i class="fas fa-lightbulb"></i> Value Based Learning &nbsp;|&nbsp; <i class="fas fa-school"></i> CBSE Affiliated &nbsp;|&nbsp; <i class="fas fa-medal"></i> 15+ Years of Excellence</span>
+        <span><i class="fas fa-graduation-cap"></i> Admissions Open for 2026-27 Academic Year &nbsp;|&nbsp; <i class="fas fa-check-circle"></i> 100% Pass Rate &nbsp;|&nbsp; <i class="fas fa-star"></i> Holistic Education &nbsp;|&nbsp; <i class="fas fa-trophy"></i> Olympiad Champions &nbsp;|&nbsp; <i class="fas fa-lightbulb"></i> Value Based Learning &nbsp;|&nbsp; <i class="fas fa-school"></i> CBSE Affiliated &nbsp;|&nbsp; <i class="fas fa-medal"></i> 15+ Years of Excellence</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CAMPUSES SELECTION GRID (Visible on Group Hub Only) ===== -->
+  <section id="campusGridSection" class="section bg-light-blue">
+    <div class="container">
+      <div class="section-header-center">
+        <h2 class="section-heading">Explore Our <span class="text-black">Schools</span></h2>
+      </div>
+      <div class="campuses-grid">
+        <!-- Campus Card 1: Korattur -->
+        <div class="campus-hub-card" onclick="switchCampus('korattur', true)">
+          <div class="ch-badge">CBSE</div>
+          <div class="ch-emblem">KOR</div>
+          <h3>ABS Global Smart School</h3>
+          <p class="ch-loc"><i class="fas fa-map-marker-alt"></i> Korattur, Chennai</p>
+          <p class="ch-desc">Flagship digital smart campus established in 2009. Offering advanced smart boards, fully-equipped labs, and NEET/JEE prep.</p>
+          <button class="ch-btn">Explore Campus <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <!-- Campus Card 2: Avadi -->
+        <div class="campus-hub-card" onclick="switchCampus('avadi', true)">
+          <div class="ch-badge">CBSE</div>
+          <div class="ch-emblem">AVD</div>
+          <h3>ABS Global Smart School</h3>
+          <p class="ch-loc"><i class="fas fa-map-marker-alt"></i> Annanur, Avadi</p>
+          <p class="ch-desc">Lush environment at Mango Gardens. Renowned sports program, modern robotics training, and integrated study hours.</p>
+          <button class="ch-btn">Explore Campus <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <!-- Campus Card 3: JN Road -->
+        <div class="campus-hub-card" onclick="switchCampus('jnroad', true)">
+          <div class="ch-badge">CBSE</div>
+          <div class="ch-emblem">TJN</div>
+          <h3>ABS Global Smart School</h3>
+          <p class="ch-loc"><i class="fas fa-map-marker-alt"></i> J.N. Road, Thiruvallur</p>
+          <p class="ch-desc">Located right in Thiruvallur town. Smart classrooms and comprehensive mentoring to help students reach district top ranks.</p>
+          <button class="ch-btn">Explore Campus <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <!-- Campus Card 4: Vidhya Mandhir -->
+        <div class="campus-hub-card" onclick="switchCampus('mandhir', true)">
+          <div class="ch-badge">CBSE</div>
+          <div class="ch-emblem">AVM</div>
+          <h3>ABS Vidhya Mandhir</h3>
+          <p class="ch-loc"><i class="fas fa-map-marker-alt"></i> Iveli Agaram, Thiruvallur</p>
+          <p class="ch-desc">Established center of excellence. High-grade CBSE learning resources, massive playground facilities, and ethical focus.</p>
+          <button class="ch-btn">Explore Campus <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <!-- Campus Card 5: Vidhyaalayaa -->
+        <div class="campus-hub-card" onclick="switchCampus('vidhyaalayaa', true)">
+          <div class="ch-badge matric">MATRIC</div>
+          <div class="ch-emblem">AVS</div>
+          <h3>ABS Vidhyaalayaa School</h3>
+          <p class="ch-loc"><i class="fas fa-map-marker-alt"></i> Iveli Agaram, Thiruvallur</p>
+          <p class="ch-desc">16+ years of board success. Production of consecutive district toppers under the Tamil Nadu Matriculation Board.</p>
+          <button class="ch-btn">Explore Campus <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section bg-white">
+    <div class="container">
+      <div class="two-col-grid">
+        <div class="about-img-wrap">
+          <img src="assets/school_hero_professional.jpeg" alt="ABS Campus View" class="about-main-img" loading="lazy" />
+          <div class="about-img-overlay">
+            <div class="overlay-stat">
+              <span class="os-num about-years-badge-text">15+</span>
+              <span class="os-txt">Years of Academic Excellence</span>
+            </div>
+          </div>
+          <div class="about-img-badge">
+            <i class="fas fa-certificate"></i>
+            <div>
+              <strong>ABS Smart Group</strong>
+              <small class="affil-text">Nurturing Leaders</small>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <h2 class="section-heading" id="aboutCampusHeading">About ABS <span class="text-black">Our Story</span></h2>
+          <p class="body-text" id="aboutCampusText1">ABS Group of Schools is a leading educational trust established in 2009. We manage five state-of-the-art campuses designed to offer premium education to students of all backgrounds.</p>
+          <p class="body-text" id="aboutCampusText2">Our schools combine academic rigor with creative development, offering integrated IIT-JEE/NEET coaching, coding & robotics clubs, and rich co-curricular programs including sports, arts, karate, and yoga.</p>
+
+          <button class="btn-view-more" id="viewMorePillarsBtn" onclick="togglePillars()">
+            View More <i class="fas fa-arrow-right"></i>
+          </button>
+
+          <div class="about-pillars" id="aboutPillars" style="display: none;">
+            <div class="pillar">
+              <div class="pillar-icon navy"><i class="fas fa-bullseye"></i></div>
+              <div>
+                <h4>Our Mission</h4>
+                <p>To provide technology-driven, ethical education that empowers students with skills to become responsible global citizens.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon maroon"><i class="fas fa-eye"></i></div>
+              <div>
+                <h4>Our Vision</h4>
+                <p>To be the leading educational institution creating confident, compassionate and highly competent future leaders.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon gold"><i class="fas fa-star"></i></div>
+              <div>
+                <h4>Our Motto</h4>
+                <p>"Excellence in Education, Virtue in Life" — guiding every student to realize their maximum potential.</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-actions">
+            <button class="btn-primary" onclick="openEnquiry(event)">
+              <i class="fas fa-user-graduate"></i> Apply for Admission
+            </button>
+            <a href="#contact" class="btn-outline">
+              <i class="fas fa-phone-alt"></i> Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="section bg-light-blue">
+    <div class="container">
+      <div class="section-header-center">
+        <h2 class="section-heading">What Makes Us <span class="text-black">Stand Out</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card" id="why1">
+          <div class="why-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3>Smart Classrooms</h3>
+          <p>Digital interactive smart boards and high-grade e-learning systems in every room for modern, immersive learning.</p>
+        </div>
+        <div class="why-card" id="why2">
+          <div class="why-icon"><i class="fa-solid fa-medal"></i></div>
+          <h3>100% Board Results</h3>
+          <p>Consistent 100% pass rates and district high scores in board examinations year after year across campuses.</p>
+        </div>
+        <div class="why-card" id="why3">
+          <div class="why-icon"><i class="fa-solid fa-flask"></i></div>
+          <h3>Dedicated Labs</h3>
+          <p>State-of-the-art Physics, Chemistry, Biology, Mathematics and Computer science labs for hands-on experiments.</p>
+        </div>
+        <div class="why-card" id="why4">
+          <div class="why-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>NEET / JEE / Robotics</h3>
+          <p>Integrated entrance exam guidance (NEET & IIT-JEE) and robotics/AI classes conducted during standard school hours.</p>
+        </div>
+        <div class="why-card" id="why5">
+          <div class="why-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+          <h3>CLOBAS Mobile App</h3>
+          <p>Integrated parents' portal to stay instantly updated on student progress, announcements, and track attendance.</p>
+        </div>
+        <div class="why-card" id="why6">
+          <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Safe & Secure Campus</h3>
+          <p>24/7 CCTV security, trained personnel, and GPS-tracked school buses for complete student safety.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROGRAMS ===== -->
+  <section id="programs" class="section bg-white">
+    <div class="container">
+      <div class="section-header-center">
+        <h2 class="section-heading">Our Academic <span class="text-black">Curriculum</span></h2>
+      </div>
+      <div class="programs-grid">
+        <div class="prog-card" id="prog1">
+          <div class="prog-top" style="background: #1a3c6e;">
+            <i class="fas fa-seedling prog-icon"></i>
+            <div class="prog-level">Foundation Stage</div>
+          </div>
+          <div class="prog-body">
+            <h3>Pre-Primary</h3>
+            <p>Nursery · LKG · UKG</p>
+            <ul>
+              <li><i class="fas fa-check"></i> Play-way learning models</li>
+              <li><i class="fas fa-check"></i> Foundational math & language skills</li>
+              <li><i class="fas fa-check"></i> Creative art, crafts & songs</li>
+              <li><i class="fas fa-check"></i> Physical & social development</li>
+            </ul>
+            <a href="#" onclick="openEnquiry(event)" class="prog-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="prog-card" id="prog2">
+          <div class="prog-top" style="background: #e91e63; color: #fff;">
+            <i class="fas fa-book-open prog-icon"></i>
+            <div class="prog-level">Primary Stage</div>
+          </div>
+          <div class="prog-body">
+            <h3>Classes I – V</h3>
+            <p>Constructing Fundamentals</p>
+            <ul>
+              <li><i class="fas fa-check"></i> Structured NCERT & Matric syllabi</li>
+              <li><i class="fas fa-check"></i> Smart board classroom lessons</li>
+              <li><i class="fas fa-check"></i> Foundational science & math labs</li>
+              <li><i class="fas fa-check"></i> Comprehensive English reading</li>
+            </ul>
+            <a href="#" onclick="openEnquiry(event)" class="prog-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="prog-card" id="prog3">
+          <div class="prog-top" style="background: #c47c00;">
+            <i class="fas fa-microscope prog-icon"></i>
+            <div class="prog-level">Middle School</div>
+          </div>
+          <div class="prog-body">
+            <h3>Classes VI – VIII</h3>
+            <p>Exploration & Application</p>
+            <ul>
+              <li><i class="fas fa-check"></i> Intermediate coding & STEM sessions</li>
+              <li><i class="fas fa-check"></i> Lab experimental training</li>
+              <li><i class="fas fa-check"></i> Interactive project works</li>
+              <li><i class="fas fa-check"></i> Public speaking & clubs participation</li>
+            </ul>
+            <a href="#" onclick="openEnquiry(event)" class="prog-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="prog-card" id="prog4">
+          <div class="prog-top" style="background: #2e7d32;">
+            <i class="fas fa-pencil-ruler prog-icon"></i>
+            <div class="prog-level">Secondary Stage</div>
+          </div>
+          <div class="prog-body">
+            <h3>Classes IX – X</h3>
+            <p>Board Examination Success</p>
+            <ul>
+              <li><i class="fas fa-check"></i> High-performance board training</li>
+              <li><i class="fas fa-check"></i> Weekly test and assessment methods</li>
+              <li><i class="fas fa-check"></i> Subject-matter support sessions</li>
+              <li><i class="fas fa-check"></i> Custom career consulting guidance</li>
+            </ul>
+            <a href="#" onclick="openEnquiry(event)" class="prog-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="prog-card" id="prog5">
+          <div class="prog-top" style="background: #6a1b9a;">
+            <i class="fas fa-graduation-cap prog-icon"></i>
+            <div class="prog-level">Senior Secondary</div>
+          </div>
+          <div class="prog-body">
+            <h3>Classes XI – XII</h3>
+            <p>Science · Commerce · Arts</p>
+            <ul>
+              <li><i class="fas fa-check"></i> Specialized streams & options</li>
+              <li><i class="fas fa-check"></i> Integrated NEET / JEE coaching</li>
+              <li><i class="fas fa-check"></i> Digital coding & AI modules</li>
+              <li><i class="fas fa-check"></i> College gateway mentorship</li>
+            </ul>
+            <a href="#" onclick="openEnquiry(event)" class="prog-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="prog-card prog-cta" id="prog6">
+          <i class="fas fa-star prog-cta-icon"></i>
+          <h3>Ready to Register?</h3>
+          <p>Admissions for 2026–27 are now open. Secure your child's seats today!</p>
+          <button class="btn-primary full" onclick="openEnquiry(event)">Apply Now</button>
+          <a href="#contact" class="prog-tel"><i class="fas fa-phone-alt"></i> Speak to Coordinator</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FACILITIES (NAVY BG) ===== -->
+  <section id="facilities" class="section bg-navy">
+    <div class="container">
+      <div class="section-header-center light">
+        <h2 class="section-heading white">Campus <span class="text-black">Facilities</span></h2>
+      </div>
+      <div class="fac-grid">
+        <div class="fac-card" id="fac1">
+          <div class="fac-ic"><i class="fas fa-chalkboard"></i></div>
+          <h3>Smart Classrooms</h3>
+          <p>Interactive displays, HD project support, and fast networks in classrooms.</p>
+        </div>
+        <div class="fac-card" id="fac2">
+          <div class="fac-ic"><i class="fas fa-flask"></i></div>
+          <h3>Modern Laboratories</h3>
+          <p>Equipped labs with advanced instruments and complete safety measures.</p>
+        </div>
+        <div class="fac-card" id="fac3">
+          <div class="fac-ic"><i class="fas fa-desktop"></i></div>
+          <h3>Computer Laboratories</h3>
+          <p>Individual terminals per student. Coding, AI, and IT literacy from middle school.</p>
+        </div>
+        <div class="fac-card" id="fac4">
+          <div class="fac-ic"><i class="fas fa-book"></i></div>
+          <h3>Extensive Libraries</h3>
+          <p>Collection of books, journals, encyclopedias, and reference content.</p>
+        </div>
+        <div class="fac-card" id="fac5">
+          <div class="fac-ic"><i class="fas fa-running"></i></div>
+          <h3>Sports Facilities</h3>
+          <p>Playgrounds for Cricket, Football, Basketball, Kabaddi, and Track Events.</p>
+        </div>
+        <div class="fac-card" id="fac6">
+          <div class="fac-ic"><i class="fas fa-music"></i></div>
+          <h3>Arts & Music Studios</h3>
+          <p>Creative spaces for learning visual arts, dance, classical and western music.</p>
+        </div>
+        <div class="fac-card" id="fac7">
+          <div class="fac-ic"><i class="fas fa-bus-alt"></i></div>
+          <h3>School Transport</h3>
+          <p>GPS tracking systems, security staff, and bus routes covering Chennai & Thiruvallur.</p>
+        </div>
+        <div class="fac-card" id="fac8">
+          <div class="fac-ic"><i class="fas fa-utensils"></i></div>
+          <h3>Hygienic Cafeteria</h3>
+          <p>Freshly prepared lunch and snacks menu adhering to standard safety norms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CO-CURRICULAR ===== -->
+  <section id="academics" class="section bg-white">
+    <div class="container">
+      <div class="two-col-grid reverse">
+        <div class="cocurr-content">
+          <div class="section-label">Beyond Academics</div>
+          <h2 class="section-heading">Co-Curricular <span class="text-black">Engagements</span></h2>
+          <p class="body-text">We focus on building a well-balanced mindset in each child. Co-curricular activities are scheduled within the core calendar so every student learns vital life-skills.</p>
+          <div class="activity-grid">
+            <div class="act-item"><i class="fas fa-fist-raised"></i> Karate</div>
+            <div class="act-item"><i class="fas fa-spa"></i> Yoga & Meditation</div>
+            <div class="act-item"><i class="fas fa-paint-brush"></i> Fine Arts & Painting</div>
+            <div class="act-item"><i class="fas fa-music"></i> Instrumental Music</div>
+            <div class="act-item"><i class="fas fa-compact-disc"></i> Classical Dance</div>
+            <div class="act-item"><i class="fas fa-calculator"></i> Abacus Training</div>
+            <div class="act-item"><i class="fas fa-robot"></i> Coding & Robotics</div>
+            <div class="act-item"><i class="fas fa-running"></i> Athletics & Games</div>
+            <div class="act-item"><i class="fas fa-campground"></i> Scouts & Guides</div>
+            <div class="act-item"><i class="fas fa-traffic-light"></i> Road Safety Patrol</div>
+            <div class="act-item"><i class="fas fa-comments"></i> Debate & Oratory</div>
+            <div class="act-item"><i class="fas fa-theater-masks"></i> Theatre & Drama</div>
+          </div>
+          <a href="#contact" class="btn-primary">Know More Details</a>
+        </div>
+        <div class="cocurr-img-wrap">
+          <img src="https://absglobal.org/assets/images/event/kirs-day1.jpg" alt="Co-curricular training" class="about-main-img" loading="lazy" />
+          <div class="cocurr-badge">
+            <i class="fas fa-trophy"></i>
+            <div>
+              <strong>State-Level Trophies</strong>
+              <small>Sports & Arts Awards</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS ===== -->
+  <section id="achievements" class="section bg-light-blue">
+    <div class="container">
+      <div class="section-header-center">
+        <h2 class="section-heading">Achievements & <span class="text-black">Top Scorers</span></h2>
+      </div>
+      <div class="achieve-grid">
+        <div class="achieve-card navy-card" id="ach1">
+          <div class="ach-icon"><i class="fas fa-trophy"></i></div>
+          <h3>100% Board Results</h3>
+          <p>Consistent record of 100% pass percentages in CBSE and State Matric Board exams.</p>
+          <div class="ach-year">2010 – 2025</div>
+        </div>
+        <div class="achieve-card navy-card" id="ach2">
+          <div class="ach-icon"><i class="fas fa-medal"></i></div>
+          <h3>District Top Scorers</h3>
+          <p>Multiple students securing top scores (>95%) in core science and math subjects.</p>
+          <div class="ach-year">2024 – 2025</div>
+        </div>
+        <div class="achieve-card navy-card" id="ach3">
+          <div class="ach-icon"><i class="fas fa-futbol"></i></div>
+          <h3>District Sports Champions</h3>
+          <p>Gold and silver rankings in district-level athletics, kabaddi and cricket tournaments.</p>
+          <div class="ach-year">2023 – 2024</div>
+        </div>
+        <div class="achieve-card navy-card" id="ach4">
+          <div class="ach-icon"><i class="fas fa-palette"></i></div>
+          <h3>Cultural Trophies</h3>
+          <p>Top institutional trophy awards in major Inter-School Cultural Fests in Chennai.</p>
+          <div class="ach-year">2022 – 2025</div>
+        </div>
+        <div class="achieve-card navy-card" id="ach5">
+          <div class="ach-icon"><i class="fas fa-robot"></i></div>
+          <h3>Robotics & Science Fairs</h3>
+          <p>National recognition for student innovators at the Young Scientists Olympiad.</p>
+          <div class="ach-year">2023 – 2024</div>
+        </div>
+        <div class="achieve-card navy-card" id="ach6">
+          <div class="ach-icon"><i class="fas fa-newspaper"></i></div>
+          <h3>Press & Media Coverage</h3>
+          <p>Highly featured in regional newspapers for outstanding social projects and results.</p>
+          <div class="ach-year">2022 – 2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="section-header-center">
+        <h2 class="section-heading">What <span class="text-black">Parents Say</span></h2>
+      </div>
+      <div class="testi-slider" id="testiSlider">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"The dynamic environment at ABS Global has brought a fantastic shift in my daughter. The teachers are very passionate and she loves attending school every single day."</p>
+            <div class="testi-author">
+              <div class="testi-av" style="background:#1a3c6e;">SR</div>
+              <div>
+                <strong>Sunitha Raj</strong>
+                <span>Parent · Class X Student</span>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Smart boards combined with dedicated mentors made my son highly independent in his studies. His Board scores were spectacular. Strongly recommend ABS!"</p>
+            <div class="testi-author">
+              <div class="testi-av" style="background:#f3ba4e; color:#000;">MK</div>
+              <div>
+                <strong>Mohan Kumar</strong>
+                <span>Parent · Class XII Student</span>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"The CLOBAS mobile application helps us keep a clear track of homework and attendance daily. Very transparent and responsive management."</p>
+            <div class="testi-author">
+              <div class="testi-av" style="background:#c47c00;">PL</div>
+              <div>
+                <strong>Priya Lakshmi</strong>
+                <span>Parent · Class VI Student</span>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"My children study at the Thiruvallur campus. The balanced focus on entrance preparation alongside sports and values is exactly what we wanted."</p>
+            <div class="testi-author">
+              <div class="testi-av" style="background:#2e7d32;">VN</div>
+              <div>
+                <strong>Vijay Narayanan</strong>
+                <span>Parent · Class VIII Student</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-controls">
+          <button class="tc-btn" id="testiPrev" onclick="slideTesti(-1)" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+          <div class="testi-dots" id="testiDots"></div>
+          <button class="tc-btn" id="testiNext" onclick="slideTesti(1)" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ADMISSIONS ===== -->
+  <section id="admission" class="section admission-section">
+    <div class="container">
+      <div class="admission-header">
+        <h2 class="adm-title">Admissions Open <span class="text-black">2025-26</span></h2>
+      </div>
+
+      <div class="adm-steps-wrapper">
+        <div class="adm-line"></div>
+        <div class="adm-grid">
+          <div class="adm-card">
+            <div class="adm-num">01</div>
+            <h3>Fill Application</h3>
+            <p>Download and fill the admission form</p>
+          </div>
+          <div class="adm-card">
+            <div class="adm-num">02</div>
+            <h3>Book a Visit</h3>
+            <p>Schedule a campus tour with our team</p>
+          </div>
+          <div class="adm-card">
+            <div class="adm-num">03</div>
+            <h3>Get Enrolled</h3>
+            <p>Complete admission and join our family</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="adm-actions">
+        <a href="tel:9600100011" class="btn-adm-primary"><i class="fas fa-phone-alt"></i> Call: 96001 00011</a>
+        <a href="#" class="btn-adm-secondary">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section id="events" class="section bg-light-blue">
+    <div class="container">
+      <div class="section-header-center">
+        <h2 class="section-heading">Events & <span class="text-black">Gallery</span></h2>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gal-item tall" id="gal1">
+          <img src="assets/school_hero_professional.jpeg" alt="ABS Group Campus" loading="lazy" />
+          <div class="gal-overlay"><span>Our Campus Infrastructure</span></div>
+        </div>
+        <div class="gal-item" id="gal2">
+          <img src="assets/smart_classroom.png" alt="Smart Classrooms" loading="lazy" />
+          <div class="gal-overlay"><span>Digital Technology Integration</span></div>
+        </div>
+        <div class="gal-item" id="gal3">
+          <img src="assets/students_sports.jpeg" alt="Sports Tournaments" loading="lazy" />
+          <div class="gal-overlay"><span>Athletics & sports achievements</span></div>
+        </div>
+        <div class="gal-item wide" id="gal4">
+          <img src="https://absglobal.org/assets/images/event/onam1.jpg" alt="Vibrant Cultural Events" loading="lazy" />
+          <div class="gal-overlay"><span>Cultural Day Celebrations</span></div>
+        </div>
+        <div class="gal-item" id="gal5">
+          <img src="assets/school_hero.jpeg" alt="Interactive Student Work" loading="lazy" />
+          <div class="gal-overlay"><span>Creative student labs work</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section bg-white">
+    <div class="container">
+      <div class="section-header-center">
+        <h2 class="section-heading">Contact <span class="text-black">Our Campuses</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info-col">
+          <div class="cinfo-card" id="cAddr">
+            <div class="cinfo-icon navy-ic"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h4>Campus Address</h4>
+              <p>No. 59, Anna Salai, SVS Club Complex<br />(Next to Devi Theatre), Chennai – 600002</p>
+            </div>
+          </div>
+          <div class="cinfo-card" id="cPhone">
+            <div class="cinfo-icon maroon-ic"><i class="fas fa-phone-alt"></i></div>
+            <div>
+              <h4>Phone Contacts</h4>
+              <p><a href="tel:04428416801">044-28416801</a></p>
+            </div>
+          </div>
+          <div class="cinfo-card" id="cEmail">
+            <div class="cinfo-icon gold-ic"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h4>Email Addresses</h4>
+              <p><a href="mailto:info@absgroupschools.com">info@absgroupschools.com</a></p>
+            </div>
+          </div>
+          <div class="cinfo-card" id="cHours">
+            <div class="cinfo-icon green-ic"><i class="fas fa-clock"></i></div>
+            <div>
+              <h4>Working Hours</h4>
+              <p>Monday – Saturday<br />8:00 AM – 4:00 PM</p>
+            </div>
+          </div>
+          <div class="contact-social">
+            <a href="https://www.facebook.com/profile.php?id=100083241222021" target="_blank" rel="noopener" class="csoc-btn facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://youtube.com/channel/UC8AekIp_ykMG31YJyfz1L1w" target="_blank" rel="noopener" class="csoc-btn youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://instagram.com/absgroupofschools" target="_blank" rel="noopener" class="csoc-btn instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="contact-form-col">
+          <div class="contact-form-box">
+            <h3><i class="fas fa-paper-plane"></i> Send a Message</h3>
+            <form id="contactForm" novalidate>
+              <div class="form-row2">
+                <div class="fg">
+                  <label for="cfName">Full Name *</label>
+                  <input type="text" id="cfName" placeholder="Your name" required />
+                </div>
+                <div class="fg">
+                  <label for="cfPhone">Phone *</label>
+                  <input type="tel" id="cfPhone" placeholder="Phone number" required />
+                </div>
+              </div>
+              <div class="fg">
+                <label for="cfEmail">Email</label>
+                <input type="email" id="cfEmail" placeholder="your@email.com" />
+              </div>
+              <div class="fg">
+                <label for="cfSubject">Subject</label>
+                <select id="cfSubject">
+                  <option value="">Select a topic</option>
+                  <option>Admission Enquiry</option>
+                  <option>Campus Visit Request</option>
+                  <option>Fee Structure Info</option>
+                  <option>Transport Service</option>
+                  <option>General Message</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label for="cfMsg">Message</label>
+                <textarea id="cfMsg" rows="4" placeholder="How can we assist you?"></textarea>
+              </div>
+              <button type="submit" class="btn-primary full" id="cfSubmit">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrap" id="admission">
+        <iframe
+          title="ABS Group Location Map"
+          src="https://maps.google.com/maps?q=Devi%20Theatre%20Chennai&t=&z=14&ie=UTF8&iwloc=&output=embed"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ADMISSION CTA ===== -->
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <div class="cta-text">
+        <h2>Secure Your Seat for Academic Year 2026–27</h2>
+        <p>Admissions are actively open across all branches. Limited seats available in science and primary groups.</p>
+      </div>
+      <div class="cta-buttons">
+        <button class="btn-cta-white" onclick="openEnquiry(event)">
+          <i class="fas fa-user-graduate"></i> Apply Now
+        </button>
+        <a href="#contact" class="btn-cta-outline">
+          <i class="fas fa-phone-alt"></i> Speak to Admissions
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="footer-col brand-col">
+          <div class="footer-logo">
+            <div class="footer-emblem">ABS</div>
+            <div>
+              <strong class="footer-brand-title">ABS Group of Schools</strong>
+              <span class="affil-text">Accredited Management Office</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">Nurturing excellence, virtue, and talent since 2009. Comprehensive education pathways across Chennai and Thiruvallur.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/profile.php?id=100083241222021" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://youtube.com/channel/UC8AekIp_ykMG31YJyfz1L1w" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://instagram.com/absgroupofschools" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore Campuses</h4>
+          <ul>
+            <li><a href="#home" onclick="switchCampus('korattur', true)"><i class="fas fa-angle-right"></i> Korattur CBSE Campus</a></li>
+            <li><a href="#home" onclick="switchCampus('avadi', true)"><i class="fas fa-angle-right"></i> Avadi CBSE Campus</a></li>
+            <li><a href="#home" onclick="switchCampus('jnroad', true)"><i class="fas fa-angle-right"></i> Thiruvallur JN CBSE</a></li>
+            <li><a href="#home" onclick="switchCampus('mandhir', true)"><i class="fas fa-angle-right"></i> ABS Vidhya Mandhir</a></li>
+            <li><a href="#home" onclick="switchCampus('vidhyaalayaa', true)"><i class="fas fa-angle-right"></i> ABS Vidhyaalayaa Matric</a></li>
+            <li><a href="#home" onclick="switchCampus('group', true)"><i class="fas fa-angle-right"></i> Group Trust Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Admissions</h4>
+          <ul>
+            <li><a href="#" onclick="openEnquiry(event)"><i class="fas fa-angle-right"></i> Online Enquiry Form</a></li>
+            <li><a href="#contact"><i class="fas fa-angle-right"></i> Book a Campus Tour</a></li>
+            <li><a href="#programs"><i class="fas fa-angle-right"></i> Admissions Guide</a></li>
+            <li><a href="#programs"><i class="fas fa-angle-right"></i> Fee Structures</a></li>
+            <li><a href="#academics"><i class="fas fa-angle-right"></i> Competitive Exam Coaching</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Head Office</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>No. 59, Anna Salai, SVS Club Complex, Chennai – 600002</p>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <p><a href="tel:04428416801">044-28416801</a></p>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <p><a href="mailto:info@absgroupschools.com">info@absgroupschools.com</a></p>
+          </div>
+          <div class="footer-cbse">
+            <i class="fas fa-certificate"></i>
+            <div>
+              <strong>Affiliation Status</strong>
+              <small class="footer-cbse-badge-text">Accredited Office</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 ABS Group of Schools. All rights reserved.</p>
+        <p>Part of ABS Educational Trust | <a href="https://absgroupschools.com" target="_blank" rel="noopener">absgroupschools.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- WhatsApp Float Link -->
+  <a href="https://wa.me/919600100011?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20admissions%20at%20ABS%20Group%20of%20Schools."
+     class="whatsapp-btn" id="whatsappBtn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
