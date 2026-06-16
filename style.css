@@ -390,30 +390,34 @@ button { font-family: inherit; cursor: pointer; }
 /* ============================================================
    HERO SLIDER
    ============================================================ */
-.hero { position: relative; overflow: hidden; }
-.hero-slider { position: relative; height: 100vh; min-height: 600px; }
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
+.hero { position: relative; overflow: hidden; height: 100vh; min-height: 600px; display: flex; align-items: center; }
+
+.hero-bg-slider { position: absolute; inset: 0; z-index: 1; }
+.bg-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
   opacity: 0;
-  transition: opacity 0.8s ease;
+  animation: bgFade 9s infinite;
 }
-.hero-slide.active { opacity: 1; z-index: 2; }
+.bg-slide:nth-child(1) { animation-delay: 0s; }
+.bg-slide:nth-child(2) { animation-delay: 3s; }
+.bg-slide:nth-child(3) { animation-delay: 6s; }
+
+@keyframes bgFade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  33% { opacity: 1; }
+  43% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
 .slide-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(rgba(19, 60, 131, 0.85), rgba(19, 60, 131, 0.85));
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
 }
-.slide-content {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  padding: 0 0 0 80px;
+.slide-content-static {
+  position: relative; z-index: 3;
+  width: 100%; padding: 0 0 0 80px;
   animation: fadeUp 0.5s ease;
 }
 .hero-badges {
@@ -567,63 +571,81 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 5px;
 }
 
-/* Stats Cards Overlay */
-.hero-stats-cards {
-  position: relative;
-  margin-top: 60px;
-  z-index: 10;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+/* Custom Stats Section */
+.custom-stats-section {
+  background-color: #355C8B;
+  color: #fff;
 }
-.hstat-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 24px 32px;
+.custom-stats-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.custom-stat-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.custom-stat-icon i {
+  font-size: 2.2rem;
+  color: #F5B83F;
+  margin-top: 4px;
+}
+.custom-stat-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 12px;
-  color: #fff;
-  min-width: 170px;
-  transition: all 0.3s ease;
-  opacity: 0;
-  animation: fadeUp 0.5s ease forwards;
+  align-items: flex-start;
 }
-.hstat-card:nth-child(1) { animation-delay: 0.1s; }
-.hstat-card:nth-child(2) { animation-delay: 0.2s; }
-.hstat-card:nth-child(3) { animation-delay: 0.3s; }
-.hstat-card:nth-child(4) { animation-delay: 0.4s; }
-.hstat-card:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-.hstat-card i {
-  font-size: 2rem;
-  color: #f4c055;
-}
-.hstat-card strong {
-  font-family: 'Georgia', serif;
+.custom-stat-num {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 800;
+  color: #ffffff;
   line-height: 1;
 }
-.hstat-card sup {
-  font-size: 1.2rem;
-  color: #fff;
-  font-weight: 700;
-  vertical-align: super;
+.custom-stat-sym {
+  color: #F5B83F;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 6px 0 4px 0;
 }
-.hstat-card span {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.8);
-  margin-top: 4px;
+.custom-stat-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.custom-stat-divider {
+  width: 1px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.custom-stats-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .custom-stats-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .custom-stat-divider {
+    display: none;
+  }
+  .custom-stat-card {
+    width: 40%;
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .custom-stat-card {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
 /* Hero Wave */

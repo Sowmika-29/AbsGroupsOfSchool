@@ -345,6 +345,7 @@ function switchCampus(campusId) {
 function updateHeroSlider(slidesData) {
   stopAutoSlide();
   const sliderContainer = document.querySelector('.hero-slider');
+  if (!sliderContainer) return;
   
   // Save controls before clearing
   const prevBtn = document.getElementById('sliderPrev');
@@ -426,7 +427,7 @@ function prevSlide() { goToSlide(currentSlide - 1); }
 
 function startAutoSlide() {
   if (slides.length > 1) {
-    sliderTimer = setInterval(nextSlide, 5000);
+    sliderTimer = setInterval(nextSlide, 3000);
   }
 }
 function stopAutoSlide() {
